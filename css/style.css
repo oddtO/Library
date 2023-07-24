@@ -2,6 +2,7 @@ main {
   display: grid;
   grid-template-rows: 50px 500px 50px;
   box-sizing: border-box;
+  gap: 20px;
   justify-items: center;
 }
 
@@ -14,6 +15,7 @@ h1 {
 div {
   overflow: auto;
   width: 80%;
+  background-color: #f5f5f5;
 }
 table {
   grid-row: 2;
@@ -38,6 +40,17 @@ td {
   padding: 0 20px;
 }
 
+td:last-child {
+  font-size: 30px;
+  color: #969600;
+
+  user-select: none;
+  cursor: pointer;
+}
+
+td:last-child:hover {
+  color: #b40000;
+}
 tr > *:nth-last-child(2) {
   border-right: none;
 }
@@ -52,6 +65,11 @@ colgroup > col:nth-child(-1n + 2) {
 button {
   width: 150px;
   height: 40px;
+}
+
+input[type="submit"],
+button {
+  cursor: pointer;
 }
 
 form {
