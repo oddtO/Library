@@ -76,6 +76,7 @@ form {
   display: grid;
   grid-auto-rows: 50px;
   width: 400px;
+  visibility: hidden;
 }
 
 form > section {
@@ -87,3 +88,5 @@ form > section {
 form > section:last-of-type {
   justify-content: start;
 }
+
+
