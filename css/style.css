@@ -51,11 +51,34 @@ td:last-child {
 td:last-child:hover {
   color: #b40000;
 }
-tr > *:nth-last-child(2) {
+tr > *:nth-last-child(-1n + 3):not(:last-child) {
   border-right: none;
 }
-tr > *:last-child {
+tr > *:nth-last-child(-1n + 2) {
   border-left: none;
+  user-select: none;
+}
+
+tr[data-finished-reading] > td:nth-last-child(2) {
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+}
+tr[data-finished-reading] > td:nth-last-child(2)::after {
+  content: " ";
+  position: absolute;
+  font-size: 40px;
+  top: -2px;
+}
+tr[data-finished-reading="true"] {
+  background-color: #00c8aa;
+}
+tr[data-finished-reading="true"] > td:nth-last-child(2)::after {
+  content: "-";
+}
+
+tr[data-finished-reading="false"] > td:nth-last-child(2)::after {
+  content: "+";
 }
 
 colgroup > col:nth-child(-1n + 2) {
@@ -88,5 +111,3 @@ form > section {
 form > section:last-of-type {
   justify-content: start;
 }
-
-

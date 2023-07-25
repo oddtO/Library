@@ -16,12 +16,20 @@
         this.bookList.splice(bookIndex, 1);
         this.render();
       },
+      changeReadState(bookIndex) {
+        let book = this.bookList[bookIndex];
+        book._isFinishedReading = !book._isFinishedReading;
+        this.render();
+      },
       render() {
         this.bookTable.tBodies[0].innerHTML = "";
         // for (let book of this.bookList) {
         for (let i = 0; i < this.bookList.length; ++i) {
           let book = this.bookList[i];
           let row = renderBookOnTableRow(book);
+
+          row.dataset.finishedReading = book._isFinishedReading;
+
           row.dataset.bookId = i;
           this.bookTable.tBodies[0].append(row);
         }
@@ -31,8 +39,10 @@
 
           for (let bookField in book) {
             if (typeof book[bookField] == "function") continue;
+
             row.append(createCell(book[bookField]));
           }
+          row.append(createCell("🕮"));
           row.append(createCell("❌"));
 
           return row;
@@ -60,6 +70,12 @@
         let bookRowToDelete = event.target.parentElement;
         this.removeBook(bookRowToDelete.dataset.bookId);
       },
+      toggleReadStateInTable(event) {
+        if (!event.target.matches("td:nth-last-child(2)")) return;
+        let bookRowToChangeState = event.target.parentElement;
+
+        this.changeReadState(bookRowToChangeState.dataset.bookId);
+      },
     };
 
     let obj = Object.assign(Object.create(proto), { bookTable, bookList: [] });
@@ -70,6 +86,10 @@
     relatedAddForm.addEventListener("submit", obj.addBookToTable.bind(obj));
 
     obj.bookTable.addEventListener("click", obj.removeBookFromTable.bind(obj));
+    obj.bookTable.addEventListener(
+      "click",
+      obj.toggleReadStateInTable.bind(obj)
+    );
     return obj;
   })(document.querySelector("#simple-library"));
 
@@ -93,9 +113,9 @@
       title,
       author,
       pageCount,
-	_isFinishedReading: isFinishedReading
+      _isFinishedReading: isFinishedReading,
     });
-	Object.defineProperty(book, "_isFinishedReading", {enumerable: false});
+    Object.defineProperty(book, "_isFinishedReading", { enumerable: false });
     return book;
   }
 })();
