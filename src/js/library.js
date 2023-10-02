@@ -68,6 +68,7 @@ export default class Library {
   addBookToTable(event) {
     event.preventDefault();
     const form = event.target;
+    form.reset();
     this.addBook(
       new Book(
         form.title.value,
