@@ -1,0 +1,35 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startdev": "nodemon --watch webpack.config.js --exec \"npx webpack serve --open --mode development\"",
+    "compilerelease": "npx webpack --mode production",
+    "distdeploy": "git subtree push --prefix dist origin gh-pages"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@html-eslint/eslint-plugin": "^0.19.1",
+    "@html-eslint/parser": "^0.19.1",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-html": "^7.1.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "nodemon": "^3.0.1",
+    "prettier": "3.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^34.0.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "private": true
+}

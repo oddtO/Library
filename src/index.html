@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Simple library</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <main>
+            <h1>Simple library</h1>
+            <div>
+                <table id="simple-library">
+                    <colgroup>
+                        <col >
+                        <col >
+                        <col >
+                        <col >
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Page count</th>
+                            <th>Has finished reading?</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <button class="add-new-book">NEW BOOK</button>
+            <form
+                action=""
+                class="add-new-book"
+                data-related-table-id="simple-library"
+            >
+                <section>
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                </section>
+                <section>
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">
+                </section>
+                <section>
+                    <label for="page-count">Number of pages:</label>
+                    <input type="number" name="page-count" id="page-count">
+                </section>
+                <section>
+                    <input type="checkbox" name="read-status" id="read-status">
+                    <label for="read-status">is finished reading</label>
+                </section>
+                <input type="submit" value="Add the book">
+            </form>
+        </main>
+    </body>
+</html>
