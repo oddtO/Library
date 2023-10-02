@@ -68,7 +68,6 @@ export default class Library {
   addBookToTable(event) {
     event.preventDefault();
     const form = event.target;
-    form.reset();
     this.addBook(
       new Book(
         form.title.value,
@@ -77,6 +76,7 @@ export default class Library {
         form["read-status"].checked,
       ),
     );
+    form.reset();
   }
   removeBookFromTable(event) {
     if (!event.target.matches("td:last-child")) return;
