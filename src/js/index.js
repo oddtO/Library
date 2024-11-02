@@ -9,6 +9,7 @@ import Library from "./library.js";
 
   newBookBtn.addEventListener("click", () => {
     newBookForm.style.visibility = "visible";
+    newBookForm.scrollIntoView({ behavior: "smooth" });
   });
 
   const library = new Library(document.querySelector("#simple-library"));
